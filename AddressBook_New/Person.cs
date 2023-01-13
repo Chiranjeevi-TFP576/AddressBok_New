@@ -87,7 +87,7 @@ namespace AddressBook_New
                             Console.WriteLine("Enter 8 to Exit ");
 
                             int Option = Convert.ToInt32(Console.ReadLine());
-                            
+
                             //Switch case statement taken to choose desired operation
                             switch (Option)
                             {
@@ -136,7 +136,33 @@ namespace AddressBook_New
                 Console.WriteLine("Your address book is empty");
             }
         }
-            
-        
+        //UC4_method for deleating or remove a existing contact
+        public void DeleteContact()
+        {
+            Console.WriteLine("Enter the first name to remove persone :");
+            string delete = Console.ReadLine();
+
+            foreach (Contact person in personDetails)
+            {
+                if (person.firstName.ToLower() == delete.ToLower())
+                {
+                    Console.WriteLine("Are you sure you want to delete this contact?(Y/N)");
+                    if (Console.ReadKey().Key == ConsoleKey.Y)
+                    {
+                        personDetails.Remove(person);
+                        Console.WriteLine("\nContact is deleted");
+                    }
+                    Console.WriteLine("\n\nContact Deleted from the List !");
+                    return;
+                }
+                else
+                {
+                    Console.WriteLine("Contact not Found ! ");
+
+                }
+            }
+
+
+        }
     }
 }
