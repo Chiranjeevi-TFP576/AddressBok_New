@@ -32,20 +32,7 @@ namespace AddressBook_New
             person.email = Console.ReadLine();
             personDetails.Add(person);
         }
-        //Adding another contact
-        public void MultiPersons()
-        {
-            AddPerson();
-            Console.Write("\n Do You Want To Add Another Contact (Y/N) :  ");
-            string choice = Console.ReadLine();
-            while (choice == "Y" || choice == "y")
-            {
-                AddPerson();
-                Console.Write("\nDo You Want To Add Another Contact (Y/N) :  ");
-                choice = Console.ReadLine();
-            }
-
-        }
+        
         //Printing the address book details 
         public void Display()
         {
@@ -162,6 +149,20 @@ namespace AddressBook_New
                 }
             }
 
+
+        }
+        //UC5_Adding another contact
+        public void MultiPleContacts()
+        {
+            AddPerson();
+            Console.Write("\n Do You Want To Add Another Contact (Y/N) :  ");
+            string choice = Console.ReadLine();
+            while (choice == "Y" || choice == "y")
+            {
+                AddPerson();
+                Console.Write("\nDo You Want To Add Another Contact (Y/N) :  ");
+                choice = Console.ReadLine();
+            }
 
         }
     }
