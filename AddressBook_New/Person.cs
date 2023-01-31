@@ -9,7 +9,8 @@ namespace AddressBook_New
     public class Person
     {
         public  List<Contact> personDetails = new List<Contact>();
-        private Dictionary<string, Dictionary<string, string>> AddressBook;
+        public Dictionary<string, Dictionary<string, string>> AddressBook;
+        public static Dictionary<string, List<Contact>> addressBookSystem = new Dictionary<string, List<Contact>>();
         Dictionary<String, Dictionary<String, Dictionary<String, String>>> AddressBookCollection = new Dictionary<string, Dictionary<String, Dictionary<String, String>>>();
         String CurrentAddressBookName = "default";
         //UC1_Create Contact
@@ -194,13 +195,31 @@ namespace AddressBook_New
             else
                 Console.WriteLine("Address Book doesn't exist");
         }
+        
 
-        //Display Contact
-        public void Display1()
+        //UC8_SearchPersonCityOrState
+        public  void SearchByCityOrState()
         {
-            foreach (var Contact in personDetails)
+
+            Console.WriteLine("Do you want to search city or state for contact then press 1 or press 2 for exit ");
+            int num = Convert.ToInt32(Console.ReadLine());
+            while (num == 1)
             {
-                Console.WriteLine(Contact);
+                List<Contact> tempcontacts = new List<Contact>();
+                Console.WriteLine("Enter the city or state to search :");
+                string iCity = Console.ReadLine();
+                foreach (var kv in addressBookSystem)
+                {
+                    var list = kv.Value.Where(x => x.city.Equals(iCity)).ToList();
+                    tempcontacts.AddRange(list);
+                }
+                Console.WriteLine("Here are found persons : ");
+                foreach (Contact contact in tempcontacts)
+                {
+                    Console.WriteLine(contact.firstName);
+                }
+                Console.WriteLine("Do you want to search city or state for contact then press 1 or press 2 for exit ");
+                num = Convert.ToInt32(Console.ReadLine());
             }
         }
 
