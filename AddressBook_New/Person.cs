@@ -8,7 +8,10 @@ namespace AddressBook_New
 {
     public class Person
     {
-        public List<Contact> personDetails = new List<Contact>();
+        public  List<Contact> personDetails = new List<Contact>();
+        private Dictionary<string, Dictionary<string, string>> AddressBook;
+        Dictionary<String, Dictionary<String, Dictionary<String, String>>> AddressBookCollection = new Dictionary<string, Dictionary<String, Dictionary<String, String>>>();
+        String CurrentAddressBookName = "default";
         //UC1_Create Contact
         public void AddPerson()
         {
@@ -165,5 +168,44 @@ namespace AddressBook_New
             }
 
         }
+        public void CreateAddressBook()
+        {
+            AddressBook= new Dictionary<string, Dictionary<string, string>>();
+            Console.WriteLine("Address Book Name: ");
+            string addressBookName = Console.ReadLine();
+            if (AddressBookCollection.ContainsKey(addressBookName))
+                Console.WriteLine("Address Book already exist");
+            else
+            {
+                AddressBookCollection.Add(addressBookName, AddressBook);
+                CurrentAddressBookName = addressBookName;
+                Console.WriteLine("Address Book created");
+            }
+        }
+        public void ChangeAddressBook()
+        {
+            Console.WriteLine("Enter Address Book Name:");
+            string addressBookName = Console.ReadLine();
+            if (AddressBookCollection.ContainsKey(addressBookName))
+            {
+                CurrentAddressBookName = addressBookName;
+                Console.WriteLine("Address Book changed");
+            }
+            else
+                Console.WriteLine("Address Book doesn't exist");
+        }
+
+        //Display Contact
+        public void Display1()
+        {
+            foreach (var Contact in personDetails)
+            {
+                Console.WriteLine(Contact);
+            }
+        }
+
     }
+
+        
+    
 }

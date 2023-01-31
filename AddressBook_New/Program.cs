@@ -1,7 +1,7 @@
 ﻿namespace AddressBook_New
 {
     internal class Program
-    {
+    { 
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome To AddressBook Problem");
@@ -9,7 +9,7 @@
             Person person = new Person();
             while(true)
             {
-                Console.WriteLine("Choose one operation to perform:\n 1-Add a Contact \n 2-View the AddressBook \n 3-Edit the Address Book  \n 4-Delete the Contact Details \n 5-Multiple Contacts");
+                Console.WriteLine("Choose one operation to perform:\n 1-Add a Contact \n 2-View the AddressBook \n 3-Edit the Address Book  \n 4-Delete the Contact Details \n 5-Multiple Contacts\n 6-NewAdressBook");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -34,6 +34,12 @@
                         person.MultiPleContacts();
                         Console.WriteLine("Enter any key to exit");
                         break;
+                    case 6:
+                        person.CreateAddressBook();
+                        person.Display();
+                        Console.WriteLine("Enter any key to exit");
+                        break;
+
                 }
             }
            
