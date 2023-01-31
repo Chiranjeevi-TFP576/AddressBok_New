@@ -11,7 +11,7 @@ namespace AddressBook_New
             Person person = new Person();
             while(true)
             {
-                Console.WriteLine("Choose one operation to perform:\n 1-Add a Contact \n 2-View the AddressBook \n 3-Edit the Address Book  \n 4-Delete the Contact Details \n 5-Multiple Contacts\n 6-NewAdressBook\n 8-SearchingCityOrState");
+                Console.WriteLine("Choose one operation to perform:\n 1-Add a Contact \n 2-View the AddressBook \n 3-Edit the Address Book  \n 4-Delete the Contact Details \n 5-Multiple Contacts\n 6-NewAdressBook\n 8-SearchingCityOrState\n 9-SortingCityOrState");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -46,6 +46,12 @@ namespace AddressBook_New
                         person.SearchByCityOrState();
                         Console.WriteLine("Enter any key to exit");
                         break;
+                    case 9:
+                        person.SortingListcity();
+                        Console.WriteLine("Enter any key to exit");
+                        break;
+                    
+
 
 
                 }
